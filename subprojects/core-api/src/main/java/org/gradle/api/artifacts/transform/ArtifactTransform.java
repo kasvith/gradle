@@ -38,7 +38,6 @@ import java.util.List;
 public abstract class ArtifactTransform {
     private File outputDirectory;
 
-    @Workspace
     public File getOutputDirectory() {
         return outputDirectory;
     }
