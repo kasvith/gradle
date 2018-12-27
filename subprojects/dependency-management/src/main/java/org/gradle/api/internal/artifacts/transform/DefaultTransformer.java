@@ -62,6 +62,7 @@ public class DefaultTransformer implements Transformer {
     @Override
     public List<File> transform(File primaryInput, File outputDir, ArtifactTransformDependencies dependencies) {
         ArtifactTransform transformer = newTransformer(outputDir, dependencies);
+        transformer.setOutputDirectory(outputDir);
         List<File> outputs = transformer.transform(primaryInput);
         return validateOutputs(primaryInput, outputDir, outputs);
     }
