@@ -16,7 +16,6 @@
 
 package org.gradle.api.internal
 
-import org.gradle.api.internal.DependencyInjectingServiceLoader
 import org.gradle.internal.instantiation.InstantiatorFactory
 import org.gradle.internal.service.ServiceRegistry
 import org.gradle.util.TestUtil
