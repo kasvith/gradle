@@ -812,7 +812,7 @@ abstract class AbstractClassGenerator implements ClassGenerator {
         @Override
         public void applyTo(ClassGenerationVisitor visitor) {
             for (PropertyMetaData property : serviceInjectionProperties) {
-                visitor.addInjectorProperty(property);
+                visitor.applyServiceInjectionToProperty(property);
                 for (Method getter : property.getOverridableGetters()) {
                     visitor.applyServiceInjectionToGetter(property, getter);
                 }
@@ -860,7 +860,7 @@ abstract class AbstractClassGenerator implements ClassGenerator {
         @Override
         public void applyTo(ClassGenerationVisitor visitor) {
             for (PropertyMetaData property : serviceInjectionProperties) {
-                visitor.addInjectorProperty(property);
+                visitor.applyServiceInjectionToProperty(property);
                 for (Method getter : property.getOverridableGetters()) {
                     visitor.applyServiceInjectionToGetter(property, injectAnnotation, getter);
                 }
@@ -898,7 +898,7 @@ abstract class AbstractClassGenerator implements ClassGenerator {
 
         void addExtensionsProperty();
 
-        void addInjectorProperty(PropertyMetaData property);
+        void applyServiceInjectionToProperty(PropertyMetaData property);
 
         void applyServiceInjectionToGetter(PropertyMetaData property, Method getter);
 
