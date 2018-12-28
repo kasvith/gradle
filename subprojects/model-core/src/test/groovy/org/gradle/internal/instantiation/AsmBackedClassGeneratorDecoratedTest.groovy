@@ -390,7 +390,7 @@ class AsmBackedClassGeneratorDecoratedTest extends AbstractClassGeneratorSpec {
     def "can inject service using a custom annotation on getter method with dummy method body"() {
         given:
         def services = Mock(ServiceLookup)
-        _ * services.get(Number) >> 12
+        _ * services.get(Number, CustomInject) >> 12
 
         when:
         def obj = create(AsmBackedClassGenerator.injectOnly([CustomInject] as Set), BeanWithCustomServices, services)
@@ -404,7 +404,7 @@ class AsmBackedClassGeneratorDecoratedTest extends AbstractClassGeneratorSpec {
     def "can inject service using a custom annotation on abstract getter method"() {
         given:
         def services = Mock(ServiceLookup)
-        _ * services.get(Number) >> 12
+        _ * services.get(Number, CustomInject) >> 12
 
         when:
         def obj = create(AsmBackedClassGenerator.injectOnly([CustomInject] as Set), AbstractBeanWithCustomServices, services)
